@@ -21,6 +21,7 @@ from pyspider.libs.ListIO import ListO
 from pyspider.libs.response import rebuild_response
 from pyspider.libs.pprint import pprint
 from pyspider.processor import ProcessorResult
+from pyspider.libs.config import *
 
 
 def catch_status_code_error(func):
