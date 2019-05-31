@@ -22,7 +22,7 @@ RUN apt-get -qq update && apt-get -qq install -y curl ca-certificates libx11-xcb
 # install requirements
 RUN pip install 'https://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.5.zip#md5=ce4a24cb1746c1c8f6189a97087f21c1'
 COPY requirements.txt /opt/pyspider/requirements.txt
-RUN pip install -r /opt/pyspider/requirements.txt
+RUN pip install --default-timeout=200 -r /opt/pyspider/requirements.txt
 
 # add all repo
 ADD ./ /opt/pyspider
@@ -31,6 +31,7 @@ ADD ./ /opt/pyspider
 WORKDIR /opt/pyspider
 RUN pip install -e .[all]
 
+RUN npm config set puppeteer_download_host=https://npm.taobao.org/mirrors
 RUN npm i puppeteer express
 
 VOLUME ["/opt/pyspider"]
