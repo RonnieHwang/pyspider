@@ -37,3 +37,8 @@ nosetests.xml
 .project
 .pydevproject
 .idea
+
+# Personal
+docker-compose.yml
+pyspider.conf
+
